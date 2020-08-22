@@ -1,0 +1,32 @@
+server:
+  port: 8001
+
+# Mybatis配置
+mybatis:
+  type-aliases-package: com.kuang.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+# Spring配置
+spring:
+  application:
+    name: springcloud-provider-dept # 三个服务名称一致
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/DB01?useUnicode=true&characterEncoding=utf-8&useSSL=false # 中文
+    username: root
+    password: cheerup
+
+# Eureka配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-hystrix-8001 # 修改Eureka上的默认描述信息
+
+# info配置
+info:
+  app.name: kuangshen-springcloud
+  company.name: blog.kuangstudy.com

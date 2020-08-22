@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+
+eureka:
+  client:
+    register-with-eureka: false # 不向Eureka注册自己
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+# 开启降级feign.hystrix
+feign:
+  hystrix:
+    enabled: true
+
+# feign和ribbon结合，指定策略。feign默认的是轮询的策略，这里的配置可以自定义
+SPRINGCLOUD-PROVIDER-DEPT: # 服务的名称，表示作用到哪个微服务
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

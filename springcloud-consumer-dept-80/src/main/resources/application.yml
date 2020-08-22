@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false # 不向Eureka注册自己
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+# 切换默认的负载均衡方式
+SPRINGCLOUD-PROVIDER-DEPT: # 服务的名称，表示作用到哪个微服务
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
