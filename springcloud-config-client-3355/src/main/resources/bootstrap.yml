@@ -1,0 +1,13 @@
+# bootstrap.yml : 系统级别的配置
+# application.yml : 用户级别的配置
+
+spring:
+  cloud:
+    config:
+      name: config-client # 读取git上的配置文件名称，不需要后缀
+      label: master # git的分支
+      profile: test
+      uri: http://localhost:3344
+
+server:
+  port: 3355 # 会用git上的server.port, 不会用这个

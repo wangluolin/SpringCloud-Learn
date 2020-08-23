@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: test-3355 # 没啥用，被覆盖掉
