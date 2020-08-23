@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: config-dept # 读取git上的配置文件名称，不需要后缀
+      label: master # git的分支
+      profile: test
+      uri: http://localhost:3344
